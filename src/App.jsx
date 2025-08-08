@@ -54,7 +54,7 @@ function App() {
                 </div>
                 <div className="address-area">
                   <div className="to-label">Gửi đến:</div>
-                  <div className="recipient">Hà - Cô bạn đồng nghiệp ngọt ngào</div>
+                  <div className="recipient">Hà</div>
                   <div className="date">Ngày {new Date().toLocaleDateString('vi-VN')}</div>
                 </div>
               </div>
