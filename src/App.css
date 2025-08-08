@@ -1,0 +1,705 @@
+/* Reset và base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  min-height: 100vh;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Container chính */
+.graduation-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeInDown 1s ease-out;
+}
+
+.main-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+.graduation-cap {
+  font-size: 5rem;
+  animation: bounce 2s infinite;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Phong bì thư */
+.envelope-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px 0;
+  perspective: 1000px;
+  animation: slideInUp 1s ease-out;
+}
+
+.envelope {
+  position: relative;
+  width: 400px;
+  height: 320px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  transition: transform 1.5s ease-in-out;
+}
+
+.envelope.open {
+  transform: rotateX(180deg);
+}
+
+/* Mặt trước phong bì */
+.envelope-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.envelope-body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e8f4fd 0%, #d1e7dd 100%);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border: 2px solid #b8d4da;
+}
+
+.stamp-area {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.stamp {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s infinite;
+}
+
+.address-area {
+  margin-top: 60px;
+  text-align: left;
+}
+
+.to-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+.recipient {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.date {
+  font-size: 1rem;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+/* Các nắp phong bì */
+.envelope-flap-top {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 8px 8px 0 0;
+  transform-origin: bottom;
+  transition: transform 1.5s ease-in-out;
+  border: 2px solid #b8d4da;
+  border-bottom: none;
+}
+
+.envelope.open .envelope-flap-top {
+  transform: rotateX(180deg);
+}
+
+.envelope-flap-left {
+  position: absolute;
+  left: -20px;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(90deg, #e9ecef 0%, #dee2e6 100%);
+  border-radius: 8px 0 0 8px;
+  transform-origin: right;
+  transition: transform 1.5s ease-in-out;
+  border: 2px solid #b8d4da;
+  border-right: none;
+}
+
+.envelope.open .envelope-flap-left {
+  transform: rotateY(-180deg);
+}
+
+.envelope-flap-right {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(90deg, #dee2e6 0%, #e9ecef 100%);
+  border-radius: 0 8px 8px 0;
+  transform-origin: left;
+  transition: transform 1.5s ease-in-out;
+  border: 2px solid #b8d4da;
+  border-left: none;
+}
+
+.envelope.open .envelope-flap-right {
+  transform: rotateY(180deg);
+}
+
+.envelope-flap-bottom {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
+  border-radius: 0 0 8px 8px;
+  transform-origin: top;
+  transition: transform 1.5s ease-in-out;
+  border: 2px solid #b8d4da;
+  border-top: none;
+}
+
+.envelope.open .envelope-flap-bottom {
+  transform: rotateX(-180deg);
+}
+
+/* Lá thư bên trong */
+.letter-inside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotateX(180deg);
+  transform-style: preserve-3d;
+  transition: all 1.5s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.letter-inside.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.letter-paper {
+  width: 90%;
+  height: 90%;
+  background: linear-gradient(135deg, #fff9f0 0%, #fff 100%);
+  margin: 5% auto;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e0e0e0;
+  position: relative;
+  overflow-y: auto;
+  max-height: 280px;
+}
+
+.letter-paper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.letter-paper::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.letter-paper::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.5);
+  border-radius: 3px;
+}
+
+.letter-paper::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.7);
+}
+
+.letter-paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+}
+
+.letter-header {
+  text-align: right;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.letter-date {
+  font-style: italic;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.letter-content h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.letter-content p {
+  line-height: 1.7;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #34495e;
+  text-align: justify;
+}
+
+.signature {
+  margin-top: 25px;
+  text-align: right;
+  font-style: italic;
+}
+
+.signature p {
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.signature-name {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* Gallery ảnh */
+.photo-gallery-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px 0;
+  animation: fadeIn 1s ease-out;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 40px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.photo-frame {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.photo-frame:hover::before {
+  transform: translateX(100%);
+}
+
+.photo-frame:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px dashed #dee2e6;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-frame:hover .photo-placeholder {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #e8f4fd 0%, #d1e7dd 100%);
+}
+
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.photo-frame:hover .photo-placeholder img {
+  transform: scale(1.1);
+}
+
+.photo-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.photo-placeholder p {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.photo-placeholder small {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Phần chúc mừng */
+.celebration-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px 0;
+  animation: fadeIn 1s ease-out;
+}
+
+.celebration-title {
+  text-align: center;
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 50px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.celebration-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  margin-bottom: 50px;
+}
+
+.celebration-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 25px;
+  padding: 35px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.celebration-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+.card-icon {
+  font-size: 4.5rem;
+  margin-bottom: 25px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.celebration-card h3 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  margin-bottom: 18px;
+  font-weight: bold;
+}
+
+.celebration-card p {
+  color: #7f8c8d;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+/* Confetti animation */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.confetti {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3);
+  animation: confettiFall linear infinite;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 40px 0;
+  color: #fff;
+  font-size: 1.3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-25px);
+  }
+  60% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073;
+  }
+  to {
+    text-shadow: 0 0 15px #fff, 0 0 25px #ff4da6, 0 0 35px #ff4da6;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .envelope {
+    width: 320px;
+    height: 260px;
+  }
+  
+  .letter-paper {
+    padding: 20px;
+    max-height: 220px;
+  }
+  
+  .letter-content h2 {
+    font-size: 1.2rem;
+  }
+  
+  .letter-content p {
+    font-size: 0.95rem;
+  }
+  
+  .gallery-title {
+    font-size: 2rem;
+  }
+  
+  .photo-gallery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .photo-placeholder {
+    height: 200px;
+  }
+  
+  .celebration-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .celebration-title {
+    font-size: 2.2rem;
+  }
+  
+  .graduation-cap {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .envelope {
+    width: 280px;
+    height: 240px;
+  }
+  
+  .letter-paper {
+    padding: 15px;
+    max-height: 200px;
+  }
+  
+  .letter-content h2 {
+    font-size: 1.1rem;
+  }
+  
+  .letter-content p {
+    font-size: 0.9rem;
+  }
+  
+  .gallery-title {
+    font-size: 1.8rem;
+  }
+  
+  .photo-placeholder {
+    height: 180px;
+  }
+  
+  .celebration-title {
+    font-size: 1.8rem;
+  }
+  
+  .celebration-card {
+    padding: 25px;
+  }
+}
