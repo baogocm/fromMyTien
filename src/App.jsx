@@ -39,8 +39,8 @@ function App() {
     <div className="graduation-container">
       {/* Header */}
       <header className="header">
-        <h1 className="main-title">🎓 Chúc Mừng</h1>
-        <h1 className="main-title"> Tốt Nghiệp 🎓</h1>
+        <h1 className="main-title">Chúc Mừng</h1>
+        <h1 className="main-title"> Tốt Nghiệp</h1>
         <div className="graduation-cap">🎓</div>
       </header>
 
