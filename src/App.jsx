@@ -6,6 +6,11 @@ import photo2 from './assets/img2.jpg'
 import photo3 from './assets/img3.jpg'
 import img4 from './assets/img4.jpg'
 
+import img5 from './assets/img5.jpg'
+import img6 from './assets/img6.jpg'
+import img7 from './assets/img7.jpg'
+
+
 function App() {
   const [showLetter, setShowLetter] = useState(false)
   const [showImages, setShowImages] = useState(false)
@@ -34,7 +39,8 @@ function App() {
     <div className="graduation-container">
       {/* Header */}
       <header className="header">
-        <h1 className="main-title">🎓 Chúc Mừng Tốt Nghiệp 🎓</h1>
+        <h1 className="main-title">🎓 Chúc Mừng</h1>
+        <h1 className="main-title"> Tốt Nghiệp 🎓</h1>
         <div className="graduation-cap">🎓</div>
       </header>
 
@@ -117,9 +123,21 @@ function App() {
             
             <div className="photo-frame">
               <div className="photo-placeholder">
-                <img src={photo3} alt="Hành trình học tập" />
+                <img src={img5} alt="Hành trình học tập" />
               </div>
             </div>
+            <div className="photo-frame">
+              <div className="photo-placeholder">
+                <img src={img6} alt="Hành trình học tập" />
+              </div>
+            </div>
+            <div className="photo-frame">
+              <div className="photo-placeholder">
+                <img src={img7} alt="Hành trình học tập" />
+              </div>
+            </div>
+            
+            
           </div>
         </div>
       )}
