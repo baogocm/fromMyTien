@@ -643,11 +643,22 @@ body {
   
   .photo-gallery {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 25px;
+    padding: 0 10px;
+  }
+  
+  .photo-frame {
+    padding: 15px;
   }
   
   .photo-placeholder {
-    height: 200px;
+    height: 300px;
+    min-height: 300px;
+  }
+  
+  .photo-placeholder img {
+    object-fit: contain;
+    background: #f8f9fa;
   }
   
   .celebration-grid {
@@ -691,8 +702,23 @@ body {
     font-size: 1.8rem;
   }
   
+  .photo-gallery {
+    gap: 20px;
+    padding: 0 5px;
+  }
+  
+  .photo-frame {
+    padding: 10px;
+  }
+  
   .photo-placeholder {
-    height: 180px;
+    height: 250px;
+    min-height: 250px;
+  }
+  
+  .photo-placeholder img {
+    object-fit: contain;
+    background: #f8f9fa;
   }
   
   .celebration-title {
@@ -701,5 +727,20 @@ body {
   
   .celebration-card {
     padding: 25px;
+  }
+}
+
+@media (max-width: 360px) {
+  .photo-placeholder {
+    height: 200px;
+    min-height: 200px;
+  }
+  
+  .photo-frame {
+    padding: 8px;
+  }
+  
+  .gallery-title {
+    font-size: 1.6rem;
   }
 }

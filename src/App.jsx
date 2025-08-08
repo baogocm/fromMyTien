@@ -93,7 +93,7 @@ function App() {
                   </p>
                   
                   <div className="signature">
-                    <p>Thương mến!</p>
+                    <p>Mỹ Tiên!</p>
                     <p className="signature-name">Người đồng đội cùng ăn trưa trong căn phòng máy lạnh mát rượi kkkk</p>
                   </div>
                 </div>
@@ -106,7 +106,7 @@ function App() {
       {/* Gallery ảnh */}
       {showPhotoGallery && (
         <div className="photo-gallery-section">
-          <h2 className="gallery-title">📸 Những Khoảnh Khắc Đáng Nhớ 📸</h2>
+          <h2 className="gallery-title">📸 Những Khoảnh Khắc Đáng Nhớ</h2>
           
           <div className="photo-gallery">
             <div className="photo-frame">
@@ -179,7 +179,7 @@ function App() {
 
       {/* Footer */}
       <footer className="footer">
-        <p>✨ Chúc Hà thành công trong mọi lĩnh vực! ✨</p>
+        <p>✨ Chúc Hà thành công trong mọi lĩnh vực!</p>
       </footer>
     </div>
   )
