@@ -4,6 +4,7 @@ import './App.css'
 import photo1 from './assets/img1.jpg'
 import photo2 from './assets/img2.jpg'
 import photo3 from './assets/img3.jpg'
+import img4 from './assets/img4.jpg'
 
 function App() {
   const [showLetter, setShowLetter] = useState(false)
@@ -14,8 +15,8 @@ function App() {
   useEffect(() => {
     // Hiển thị lá thư sau 1 giây
     const timer1 = setTimeout(() => setShowLetter(true), 1000)
-    // Mở phong bì sau 2 giây
-    const timer2 = setTimeout(() => setIsEnvelopeOpen(true), 2000)
+    // Mở phong bì sau 5 giây
+    const timer2 = setTimeout(() => setIsEnvelopeOpen(true), 5000)
     // Hiển thị gallery ảnh sau 3.5 giây
     const timer3 = setTimeout(() => setShowPhotoGallery(true), 3500)
     // Hiển thị hình ảnh chúc mừng sau 5 giây
@@ -48,9 +49,12 @@ function App() {
                 <div className="stamp-area">
                   <div className="stamp">🎓</div>
                 </div>
+                <div className="envelope-image">
+                  <img src={img4} alt="Hình ảnh đặc biệt" />
+                </div>
                 <div className="address-area">
                   <div className="to-label">Gửi đến:</div>
-                  <div className="recipient">Hà - Cô bạn nhỏ nhắn</div>
+                  <div className="recipient">Hà - Cô bạn đồng nghiệp ngọt ngào</div>
                   <div className="date">Ngày {new Date().toLocaleDateString('vi-VN')}</div>
                 </div>
               </div>
@@ -66,35 +70,26 @@ function App() {
                   <div className="letter-date">Ngày {new Date().toLocaleDateString('vi-VN')}</div>
                 </div>
                 <div className="letter-content">
-                  <h2>Gửi cô bạn nhỏ nhắn, nhẹ nhàng và đầy nghị lực của tui!</h2>
+                  <h2>Chúc mừng Hà - cô bạn đồng nghiệp ngọt ngào của tuii!!</h2>
                   
                   <p>
-                    Vậy là hành trình đại học của Hà đã chính thức khép lại – một chặng đường đầy nỗ lực, 
-                    kiên trì và biết bao cố gắng.
+                    Hôm nay không chỉ là ngày Hà tốt nghiệp, mà còn là dấu mốc quan trọng khẳng định sự nỗ lực 
+                    và ý chí bền bỉ suốt thời gian qua. Tuii thực sự tự hào vì Hà đã vượt qua tất cả một cách xuất sắc, 
+                    đúng với con người đầy quyết tâm mà mình luôn ngưỡng mộ.
                   </p>
                   
                   <p>
-                    Hà là kiểu người bước vào một căn phòng chỉ cần mỉm cười là đã khiến người khác cảm thấy 
-                    thoải mái. Tui tin, chính sự nhẹ nhàng ấy, cộng với tài năng và sự cố gắng bền bỉ, 
-                    sẽ đưa Hà đến những nơi xứng đáng trong tương lai.
+                    Bước vào chặng đường mới, mong Hà sẽ luôn giữ vững tinh thần ấy, tự tin tỏa sáng và gặt hái 
+                    nhiều thành công hơn nữa.
                   </p>
                   
                   <p>
-                    Chúc Hà sau ngày hôm nay sẽ càng rực rỡ hơn nữa – trong công việc, trong cuộc sống 
-                    và trong chính hành trình trưởng thành của mình. Dù chặng đường phía trước có thử thách 
-                    hay ngã rẽ bất ngờ, hy vọng Hà vẫn sẽ giữ được tâm hồn dịu dàng ấy, và luôn biết mình 
-                    đang đi về phía nào.
-                  </p>
-                  
-                  <p>
-                    Tui thấy rất vui vì đã từng có một khoảng thời gian đi chung với một người tuyệt vời 
-                    như Hà. Tốt nghiệp chỉ là bắt đầu – còn bao nhiêu điều tuyệt vời đang chờ phía trước, 
-                    cô gái bé nhỏ iu ơi.
+                    Với Tiên, Hà không chỉ là đồng nghiệp mà còn là người bạn tuyệt vời – luôn đáng quý và đáng trân trọng. 
+                    Hãy tiếp tục viết nên những điều thật đẹp ở chặng đường sắp tới nheaaa!!!
                   </p>
                   
                   <div className="signature">
                     <p>Mỹ Tiên!</p>
-                    <p className="signature-name">Người đồng đội cùng ăn trưa trong căn phòng máy lạnh mát rượi kkkk</p>
                   </div>
                 </div>
               </div>
@@ -106,7 +101,7 @@ function App() {
       {/* Gallery ảnh */}
       {showPhotoGallery && (
         <div className="photo-gallery-section">
-          <h2 className="gallery-title">📸 Những Khoảnh Khắc Đáng Nhớ</h2>
+          <h2 className="gallery-title">My Love</h2>
           
           <div className="photo-gallery">
             <div className="photo-frame">
