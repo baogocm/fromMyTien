@@ -56,9 +56,9 @@ function App() {
                   <img src={img4} alt="Hình ảnh bìa phong bì" />
                 </div>
                 <div className="address-area">
-                  <div className="to-label">Gửi đến:</div>
-                  <div className="recipient">Hà</div>
-                  <div className="date">Ngày {new Date().toLocaleDateString('vi-VN')}</div>
+                  <div className="to-label"><b>Gửi đến:</b></div>
+                  <div className="recipient"><b>Hà</b></div>
+                  <div className="date"><b>Ngày {new Date().toLocaleDateString('vi-VN')}</b></div>
                 </div>
               </div>
               <div className="envelope-flap-left"></div>
