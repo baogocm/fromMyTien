@@ -52,10 +52,8 @@ function App() {
             <div className="envelope-front">
               <div className="envelope-flap-top"></div>
               <div className="envelope-body">
-                <div className="stamp-area">
-                  <div className="envelope-image">
-                    <img src={img4} alt="Hình ảnh đặc biệt" />
-                  </div>
+                <div className="envelope-cover-image">
+                  <img src={img4} alt="Hình ảnh bìa phong bì" />
                 </div>
                 <div className="address-area">
                   <div className="to-label">Gửi đến:</div>
