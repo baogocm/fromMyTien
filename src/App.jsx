@@ -97,6 +97,11 @@ function App() {
                     <p>Mỹ Tiên!</p>
                   </div>
                 </div>
+                
+                {/* Ảnh ở góc phải lá thư */}
+                <div className="letter-image">
+                  <img src={img4} alt="Hình ảnh đặc biệt" />
+                </div>
               </div>
             </div>
           </div>

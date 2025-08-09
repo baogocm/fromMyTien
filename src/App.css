@@ -376,6 +376,47 @@ body {
   line-height: 1.4;
 }
 
+/* Ảnh ở góc phải lá thư */
+.letter-image {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.letter-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.letter-image:hover {
+  transform: scale(1.1);
+  border-color: rgba(102, 126, 234, 0.6);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+}
+
+.letter-image::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotateGlow 4s linear infinite;
+  opacity: 0.3;
+}
+
 /* Gallery ảnh */
 .photo-gallery-section {
   width: 100%;
@@ -760,6 +801,13 @@ body {
     max-height: 280px;
   }
   
+  .letter-image {
+    width: 60px;
+    height: 60px;
+    top: 15px;
+    right: 15px;
+  }
+  
   .letter-content h2 {
     font-size: 1.4rem;
   }
@@ -831,6 +879,13 @@ body {
     max-height: 240px;
   }
   
+  .letter-image {
+    width: 50px;
+    height: 50px;
+    top: 12px;
+    right: 12px;
+  }
+  
   .letter-content h2 {
     font-size: 1.2rem;
   }
@@ -893,5 +948,12 @@ body {
   .stamp {
     width: 35px;
     height: 35px;
+  }
+  
+  .letter-image {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    right: 10px;
   }
 }
